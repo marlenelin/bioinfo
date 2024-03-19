@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Read data</title>
+<title>Psuedoalignment Implementation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -82,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Read data</h1>
+<h1 class="title">Psuedoalignment Implementation</h1>
 </div>
 
 
@@ -97,11 +97,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p># Psuedoalignment Implementation <strong>Goal:</strong> Given some RNA-seq data in FASTA format, find the vector of equivalence class counts.</p>
+<p><strong>Goal:</strong> Given some RNA-seq data in FASTA format, find the vector of equivalence class counts.</p>
 <p>The pseudoalignment procedure should take in: - (1) an index from gene notation, or, a way of corresponding isoform name to the actual sequence (ref genome: <em>chr11</em>) - (2) RNA-seq data (reads: <em>reads.tar.gz</em>) - (3) a k-mer length (ideally between 21 ~ 36)</p>
 <p>The output would be a table like:</p>
-<p><img src="proj2_files/figure-html/49469f13-1-image.png" class="img-fluid" alt="image.png"> - isoforms in eq. class - number of items in that eq. class: how many isoforms are in the eq. class - counts: number of reads that map to the equivalence class An equivalence class is a set of isoform targes that the read could potentially be from/map to.</p>
+<p><img src="proj2_files/figure-html/30ca9817-1-image.png" class="img-fluid" alt="image.png"> - isoforms in eq. class - number of items in that eq. class: how many isoforms are in the eq. class - counts: number of reads that map to the equivalence class An equivalence class is a set of isoform targes that the read could potentially be from/map to.</p>
 <p>To see the final implementation, go to the pseudoalign - Obatining table… section of this notebook.</p>
+<section id="read-data" class="level2">
+<h2 class="anchored" data-anchor-id="read-data">Read data</h2>
 <p>The RNA-seq data and ref genome are both in FASTA forma, which we would parse with the biopython library.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install Bio</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -189,6 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="proj2_files/figure-html/cell-9-output-2.png" class="img-fluid"></p>
 </div>
 </div>
+</section>
 </section>
 <section id="equivalence-classes" class="level2">
 <h2 class="anchored" data-anchor-id="equivalence-classes">Equivalence classes</h2>
